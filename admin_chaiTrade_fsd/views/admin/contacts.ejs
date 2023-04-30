@@ -1,0 +1,43 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <% if(contacts.length>0) { %>
+            <div class="grid">
+                <% for (let contact of contacts) { %>
+                    <article class="card product-item">
+                        <header class="card__header">
+                            <h1 class="product__title">
+                                <%= contact.authorName %>
+                            </h1>
+                        </header>
+                        <h4 class="product__title">
+                            <%= contact.email %>
+                        </h4>
+                        <div class="card__content">
+                            <h4 class="product__description">
+                                <%= contact.title %>
+                            </h4>
+                            <p class="product__description">
+                                <%= contact.content %>
+                            </p>
+                        </div>
+                        <div class="card__action">
+                            <a href="/admin/edit-contact/<%= contact._id %>?edit=true" class="btn">Reply</a>
+                            <form action="/admin/delete-contact" method="POST">
+                                <input type="hidden" value="<%= contact._id %>" name="contactId">
+                                <button class="btn" type="submit">Dis-mis</button>
+                            </form>
+                        </div>
+                    </article>
+                <% } %>
+            </div>
+        <% } else { %>
+            <h1>No queries Found!</h1>
+        <% } %>
+    </main>
+<%- include('../includes/end.ejs') %>

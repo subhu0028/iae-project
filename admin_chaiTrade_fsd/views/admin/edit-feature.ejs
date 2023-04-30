@@ -1,0 +1,31 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/forms.css">
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <form class="product-form" action="<% if(editing) { %>edit-feature<% } else { %>add-feature<% } %>" method="post">
+
+            <div class="form-control">
+                <label for="mentorName">Mentor Name</label>
+                <input type="text" name="mentorName" id="title" value="<% if(editing) { %><%= feature.mentorName %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="title">Title</label>
+                <textarea type="text" name="title" id="description" rows="2"><% if(editing) { %><%= feature.title %><% } %></textarea>
+            </div>
+            <div class="form-control">
+                <label for="content">Content</label>
+                <textarea type="text" name="content" id="description" rows="5"><% if(editing) { %><%= feature.content %><% } %></textarea>
+            </div>
+
+            <% if(editing) { %>
+                <input type="hidden" value="<%= feature._id %>" name="featureId">
+            <% } %>   
+            <button type="submit"><% if(editing) { %>Update Feature<% } else { %>Add Feature<% } %></button>
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>

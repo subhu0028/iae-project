@@ -1,0 +1,62 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <input id="searchbar" onkeyup="search_user()" type="text"
+        name="search" placeholder="Search users..">
+        
+        <% if(users.length>0) { %>
+            <div class="grid">
+                <% for (let user of users) { %>
+                    <article class="card product-item users">
+                        <header class="card__header">
+                            <h1 class="product__title">
+                                <%= user.userName %>
+                            </h1>
+                        </header>
+                        
+                        <div class="card__content">
+                            <h4 class="product__price">
+                                <%= user.email %>
+                            </h4>
+                            <!-- 
+                            <p class="product__description">
+                                <%= user.password %>
+                            </p> -->
+                        </div>
+                        <div class="card__action">
+                            <a href="/admin/edit-user/<%= user._id %>?edit=true" class="btn">Edit</a>
+                            <form action="/admin/delete-user" method="POST">
+                                <input type="hidden" value="<%= user._id %>" name="userId">
+                                <button class="btn" type="submit">Delete</button>
+                            </form>
+                            
+                        </div>
+                    </article>
+                <% } %>
+            </div>
+        <% } else { %>
+            <h1>No Users Found!</h1>
+        <% } %>
+        <script>
+            function search_user() {
+                let input = document.getElementById('searchbar').value
+                input = input.toLowerCase();
+                let x = document.getElementsByClassName('users');
+                
+                for (i = 0; i < x.length; i++) { 
+                    if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                        x[i].style.display="none";
+                    }
+                    else {
+                        x[i].style.display="card-item";                 
+                    }
+                }
+            }
+        </script>
+    </main>
+<%- include('../includes/end.ejs') %>

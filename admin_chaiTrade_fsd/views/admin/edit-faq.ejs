@@ -1,0 +1,28 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/forms.css">
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <form class="product-form" action="<% if(editing) { %>edit-faq<% } else { %>add-faq<% } %>" method="post">
+
+            <div class="form-control">
+                <label for="question">Question</label>
+                <textarea type="text" name="question" id="description" rows="5"><% if(editing) { %><%= faq.question %><% } %></textarea>
+            </div>
+
+            <div class="form-control">
+                <label for="answer">Answer</label>
+                <textarea type="text" name="answer" id="description" rows="5"><% if(editing) { %><%= faq.answer %><% } %></textarea>
+            </div>
+
+            <% if(editing) { %>
+                <input type="hidden" value="<%= faq._id %>" name="faqId">
+            <% } %>   
+            <button type="submit"><% if(editing) { %>Update FAQ<% } else { %>Add FAQ<% } %></button>
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>

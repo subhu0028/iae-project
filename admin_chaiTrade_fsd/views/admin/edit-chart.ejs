@@ -1,0 +1,42 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/forms.css">
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <form class="product-form" action="<% if(editing) { %>edit-chart<% } else { %>add-chart<% } %>" method="post">
+
+            <div class="form-control">
+                <label for="chart_name">Chart Name</label>
+                <input type="text" name="chart_name" id="title" value="<% if(editing) { %><%= chart.chart_name %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="chart_ltp">Chart Ltp</label>
+                <input type="text" name="chart_ltp" id="title" value="<% if(editing) { %><%= chart.chart_ltp %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="chart_change">Chart Change</label>
+                <input type="text" name="chart_change" id="title" value="<% if(editing) { %><%= chart.chart_change %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="chart_percentage">Chart Percentage</label>
+                <input type="text" name="chart_percentage" id="title" value="<% if(editing) { %><%= chart.chart_percentage %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="type">Type</label>
+                <input type="text" name="type" id="title" value="<% if(editing) { %><%= chart.type %><% } %>">
+            </div>
+            
+
+            <% if(editing) { %>
+                <input type="hidden" value="<%= chart._id %>" name="chartId">
+            <% } %>   
+            <button type="submit"><% if(editing) { %>Update Chart<% } else { %>Add Chart<% } %></button>
+        </form>
+
+        
+    </main>
+<%- include('../includes/end.ejs') %>

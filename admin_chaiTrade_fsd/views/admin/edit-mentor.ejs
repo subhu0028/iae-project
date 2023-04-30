@@ -1,0 +1,31 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/forms.css">
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <form class="product-form" action="<% if(editing) { %>edit-mentor<% } else { %>add-mentor<% } %>" method="post">
+            <div class="form-control">
+                <label for="mentorName">Mentor Name</label>
+                <input type="text" name="mentorName" id="title" value="<% if(editing) { %><%= mentor.mentorName %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="mentorImage">Image URL</label>
+                <input type="text" name="mentorImage" id="imageUrl" value="<% if(editing) { %><%= mentor.mentorImage %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="mentorEmail">Email</label>
+                <input type="text" name="mentorEmail" id="price" value="<% if(editing) { %><%= mentor.mentorEmail %><% } %>">
+            </div>
+
+
+            <% if(editing) { %>
+                <input type="hidden" value="<%= mentor._id %>" name="mentorId">
+            <% } %>   
+            <button type="submit"><% if(editing) { %>Update User<% } else { %>Add User<% } %></button>
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>

@@ -1,0 +1,44 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/forms.css">
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <form class="product-form" action="<% if(editing) { %>edit-contact<% } else { %>add-contact<% } %>" method="post">
+
+            <div class="form-control">
+                <label for="authorName">Author Name</label>
+                <input type="text" name="authorName" id="title" value="<% if(editing) { %><%= contact.authorName %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="title" value="<% if(editing) { %><%= contact.email %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="title">Title</label>
+                <textarea type="text" name="title" id="description" rows="2"><% if(editing) { %><%= contact.title %><% } %></textarea>
+            </div>
+            <div class="form-control">
+                <label for="content">Content</label>
+                <textarea type="text" name="content" id="description" rows="5"><% if(editing) { %><%= contact.content %><% } %></textarea>
+            </div>
+
+            <div class="form-control">
+                <label for="reply_sub">Subject</label>
+                <textarea type="text" name="reply_sub" id="description" rows="2"><% if(editing) { %><%= contact.reply_sub %><% } %></textarea>
+            </div>
+            <div class="form-control">
+                <label for="reply_text">Mail</label>
+                <textarea type="text" name="reply_text" id="description" rows="5"><% if(editing) { %><%= contact.reply_text %><% } %></textarea>
+            </div>
+
+            <% if(editing) { %>
+                <input type="hidden" value="<%= contact._id %>" name="contactId">
+            <% } %>   
+            <button type="submit"><% if(editing) { %>Reply<% } else { %>Add Feature<% } %></button>
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>
