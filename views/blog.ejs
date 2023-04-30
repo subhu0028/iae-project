@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/blog.css">
+    <link rel="stylesheet" href="/css/notLoggedIn.css">
+
+    <script src="https://kit.fontawesome.com/b7c0e417e7.js" crossorigin="anonymous"></script>
+    <title>Blog</title>
+</head>
+
+<header>
+    <%- include('partials/_navbar') %>
+</header>
+
+<body>
+    <% if(isLoggedIn){ %>
+        <img src="/images/charts.jpg" alt="background" class="backgroundpic">
+        <div class="comment_container">
+            <div class="form_container">
+                <form id="comment_upload" action="/postBlog" method="POST">
+                    <div class="icons">
+                        <h3>Post Something</h3>
+                        <input type="file" id="upload" hidden />
+                        <label class="uploader" for="upload"><i class="fa-solid fa-paperclip"></i></label>
+                    </div>
+                    <input name="title" id="title" placeholder="Title" type="text" required />
+                    <textarea name="content" id="content" placeholder="Type your message here...." required></textarea>
+                    <button name="submit" type="submit" id="contact-submit">
+                        Submit
+                    </button>
+                </form>
+            </div>
+            <% details.forEach((each)=>{ %>
+                <div class="comment">
+                    <div class="commentBody">
+                        <a href="#" class="user">
+                            <img src="<%= each.authorAvatar %>" alt="" class="userPfp">
+                        </a>
+                        <div class="comment_content">
+                            <h3 class="username">
+                                <%= each.authorName %>
+                            </h3>
+                            <h2>
+                                <%= each.title %>
+                            </h2>
+                            <p>
+                                <%= each.content %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+        <script src="/js/blog.js"></script>
+        <% } else { %>
+            <div class="bodyElement">
+                <div class="image-container">
+                    <img style="width: 500px" class="signedOutImage" src="/images/profile-interface-animate.svg">
+                    <p class="image-caption">User not Logged-in</p>
+                    <button class="button-27" role="button"><a href="/signIn">Click Here to Login</a></button>
+                </div>
+            </div>
+            <% } %>
+
+</body>
+
+<footer>
+    <%- include('partials/_footer') %>
+</footer>
+
+</html>

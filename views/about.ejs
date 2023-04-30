@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+
+    <link rel="stylesheet" href="/css/about.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b7c0e417e7.js" crossorigin="anonymous"></script>
+
+</head>
+
+<header>
+    <%- include('partials/_navbar') %>
+</header>
+
+<body>
+    <img src="/images/charts.jpg" alt="background" class="backgroundpic">
+    <div class="about_aims">
+        <div class="about_welcome">
+            <h1 class="about_welcomehead">Unleashing Your Inner Maverick with Our Stock Trading Platform</h1>
+        </div>
+        <div class="about_aiminfo">
+            <p class="about_content">• ➼ Our website aims to provide a comprehensive platform for trading financial
+                assets
+                and markets. We offer a
+                wide range of trading instruments, including stocks, bonds, commodities, and cryptocurrencies, and our
+                users can access them through a user-friendly interface and advanced trading tools.</p>
+            <p class="about_content">• ➼ We are committed to ensuring the security and reliability of our platform, and
+                we
+                have a team of experts
+                dedicated to improving our systems and implementing the latest technologies to protect our users' data
+                and assets.</p>
+            <p class="about_content">• ➼ Moreover, we value our users' satisfaction and strive to create a supportive
+                trading community through
+                social features and networking opportunities. Our contributors are committed to achieving our goals and
+                improving our platform to meet our users' evolving needs.</p>
+        </div>
+    </div>
+
+
+    <div class="about_features">
+        <h2 class="about_featureshead">Our Key Features</h2>
+        <div class="about_features">
+            <div class="about_features-container">
+                <div class="about_features-card">
+                    <i class="fas fa-mobile-alt features-icon"></i>
+                    <h3 class="about_features-title">Simulator</h3>
+                    <p class="about_features-desc">Use our trading simulator to invest virtual money without putting
+                        your real money at risk
+                        and become a trading pro!
+                    </p>
+                </div>
+                <div class="about_features-card">
+                    <i class="fas fa-university features-icon"></i>
+                    <h3 class="about_features-title">Featured Blogs</h3>
+                    <p class="about_features-desc">Read and study reports written by the mentors.
+                        Here mentors interacts with the user</p>
+                </div>
+                <div class="about_features-card">
+                    <i class="fas fa-chart-bar features-icon"></i>
+                    <h3 class="about_features-title">Charts</h3>
+                    <p class="about_features-desc">displays the current market status of different stocks in the form of
+                        numerical data,
+                        charts and graphs</p>
+                </div>
+                <div class="about_features-card">
+                    <i class="fas fa-headset features-icon"></i>
+                    <h3 class="about_features-title">Support</h3>
+                    <p class="about_features-desc">Our support team is available to assist you with any
+                        questions or issues.</p>
+                </div>
+                <div class="about_features-card">
+                    <i class="fas fa-newspaper features-icon"></i>
+                    <h3 class="about_features-title">News</h3>
+                    <p class="about_features-desc">Get live updates about what's popping in the stock market.
+                        Get the latest news from verified media outlets.</p>
+                </div>
+                <div class="about_features-card">
+                    <i class="fas fa-comments features-icon"></i>
+                    <h3 class="about_features-title">Community Blogs</h3>
+                    <p class="about_features-desc">Our community blogs allows you to connect with other users and share
+                        your
+                        experiences, thoughts and ideas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about_contributors">
+        <div class="about_contributorshead">
+            <h2 class="about_contrihead">Our Contributors</h2>
+        </div>
+        <section id="about_contributorsinfo">
+
+            <div class="about_row">
+
+                <div class="col-lg-4 div1 div11">
+                    <img class="about_img" src="https://picsum.photos/200/300" alt="oneprofilepic">
+                    <h3 class="
+                        about_names-h3">Darshan</h3>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <p class="about_features-para">Android and Web Developer</p>
+                </div>
+
+                <div class="col-lg-4 div1 div12">
+                    <img class="about_img" src="https://picsum.photos/300/400" alt="twoprofilepic">
+                    <h3 class="about_names-h3">Subhangi</h3>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <p class="about_features-para">Web Developer</p>
+                </div>
+
+                <div class="col-lg-4 div1 div13">
+                    <img class="about_img" src="https://picsum.photos/400/500" alt="threeprofilrpic">
+                    <h3 class="about_names-h3">vamsidhar</h3>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <p class="about_features-para">Web Developer</p>
+                </div>
+
+
+                <div class="col-lg-6 div1 div14">
+                    <img class="about_img" src="https://picsum.photos/500/600" alt="fourprofilepic">
+                    <h3 class="about_names-h3">Hridayesh</h3>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <p class="about_features-para">Web Developer</p>
+                </div>
+
+                <div class="col-lg-6 div1 div15">
+                    <img class="about_img" src="https://picsum.photos/600/700" alt="fiveprofilepic">
+                    <h3 class="about_names-h3">Abraham</h3>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <p class="about_features-para">Web Developer</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+<footer>
+    <%- include('partials/_footer') %>
+</footer>
+
+</html>

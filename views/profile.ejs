@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/notLoggedIn.css">
+    <script src="https://kit.fontawesome.com/b7c0e417e7.js" crossorigin="anonymous"></script>
+
+</head>
+
+<header>
+    <%- include('partials/_navbar') %>
+</header>
+
+<body>
+    <% if(isLoggedIn){ %>
+        <div class="backpic row">
+            <img src="/images/charts.jpg" alt="background" class="backgroundpic">
+        </div>
+        <div class="container">
+
+            <div class="card left-card">
+                <div class="profile-pic-container">
+                    <img src="<%= profileImage %>" alt="Profile Picture" class="profile-pic" />
+                    <div class="camera-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                </div>
+
+                <div class="oldinfo names">
+                    <% if(isSignedIn){ %>
+                        <h3>
+                            <%= name %>
+                        </h3>
+                        <% }else{ %>
+                            <h3>Not SignedIn</h3>
+                            <% } %>
+                </div>
+
+                <br>
+                <div class="oldinfo email">
+                    <% if(isSignedIn){ %>
+                        <p>
+                            <%= email %>
+                        </p>
+                        <% }else{ %>
+                            <p>Not SignedIn</p>
+                            <% } %>
+                </div>
+
+                <div id="icons">
+                    <div class="row">
+                        <div class="col-lg-6  div1">
+                            <i class="fab fa-linkedin leftcardicons"></i>
+                        </div>
+
+                        <div class="col-lg-6 div1">
+                            <i class="fa-brands fa-instagram leftcardicons"></i>
+                        </div>
+
+                        <div class="col-lg-6 div1">
+                            <i class="fa-solid fa-plus leftcardicons"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card right-card">
+                <form id="changeProfile" action="/changesProfile" method="POST">
+                    <input id="profileImage123" name="userProfileImage" style="display: none;" />
+                    <div class="part1">
+                        <div class="col-md-6 field field1">
+                            <label for="firstname">User Name:</label>
+                            <input name="userName" type="text" id="userName" value="<%= name %>" />
+                        </div>
+
+                    </div>
+
+                    <div class="part2">
+                        <div class="field educationfield">
+                            <label for="education">Education:</label>
+                            <select id="education" name="education">
+                                <option value="">--Please select an option--</option>
+                                <option value="BCOM">BCOM</option>
+                                <option value="Btech">Btech</option>
+                                <option value="Mtech">Mtech</option>
+                                <option value="PG">PG</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="field phonefield">
+                            <label for="phone">Phone:</label>
+                            <div class="phone-dropdown">
+                                <select id="countryCode" name="countrycode">
+                                    <option value="">select code</option>
+                                    <option value="+1">+1 (USA)</option>
+                                    <option value="+44">+44 (UK)</option>
+                                    <option value="+81">+81 (Japan)</option>
+                                    <option value="+91">+91 (India)</option>
+                                </select>
+                                <input name="userPhone" type="number" id="phone" placeholder="123-456-7890"
+                                    value="<%= phoneNumber %>" />
+                            </div>
+                        </div>
+
+
+                        <div class="field emailfield">
+                            <label for="email">Email:</label>
+                            <input name="email" type="email" id="email" value="<%= email %>" />
+                        </div>
+
+                        <div class="field incomefield">
+                            <label for="income">Income:</label>
+                            <div class="input-group">
+                                <input name="incomeAmount" type="number" id="income" class="form-control"
+                                    placeholder="Amount" value="<%= income %>" />
+                                <div class="input-group-append">
+                                    <select name="incomeCode" id="currency" class="form-control">
+                                        <option value="">select currency</option>
+                                        <option value="USD">USD</option>
+                                        <option value="EUR">EUR</option>
+                                        <option value="INR" selected>INR</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="changesButton" class="save-button">Save Changes</button>
+                        <% if(!isMentorLoggedIn){ %>
+                            <button class="mentorButton">
+                                <a href="/mentorApplication">Apply as a Mentor</a>
+                            </button>
+                            <% } %>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <script src="/js/profile.js"></script>
+        <% } else { %>
+            <div class="bodyElement">
+                <div class="image-container">
+                    <img style="width: 500px" class="signedOutImage" src="/images/profile-interface-animate.svg">
+                    <p class="image-caption">User not Logged-in</p>
+                    <button class="button-27" role="button"><a href="/signIn">Click Here to Login</a></button>
+                </div>
+            </div>
+            <% } %>
+
+
+</body>
+
+
+<% if(isLoggedIn){ %>
+    <footer>
+        <%- include('partials/_footer') %>
+    </footer>
+    <% } else { %>
+        <% } %>
+
+
+
+</html>

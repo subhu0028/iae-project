@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>navbar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/css/navbar/reset.min.css" />
+  <link rel="stylesheet" href="/css/navbar/style.css" />
+  <link rel="stylesheet" href="/css/navbar/header-3.css" />
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="wrapper site-header__wrapper">
+
+      <div class="site-header__start">
+        <a href="/" class="brand"><img id="logo_img" src="/images/logo.png" alt=""></a><br>
+        <span class="name"><a href="/">ChaiTrade</a></span>
+      </div>
+
+      <div class="site-header__end">
+
+        <nav class="nav">
+
+          <button class="nav__toggle" aria-expanded="false" type="button">
+            <img src="https://img.icons8.com/ios-glyphs/30/null/menu--v1.png" alt="menu">
+          </button>
+
+          <ul class="nav__wrapper">
+
+            <li class="nav__item"><a navbar_anchor href="/charts">Charts</a></li>
+            <li class="nav__item"><a href="/news">News</a></li>
+
+            <% if(isLoggedIn){ %>
+              <li class="nav__item"><a href="/blog">Blogs</a></li>
+              <li class="nav__item"><a href="/featured">Featured</a></li>
+
+              <% if(isMentorLoggedIn){ %>
+                <li class="nav__item"><a href="/mentorPanel">MentorPanel</a></li>
+                <li class="nav__item"><a href="/mentorBlogs">MyBlogs</a></li>
+                <% } %>
+                <li class="nav__item"><a href="/transactions">Transactions</a></li>
+                  <li class="nav__item"><a href="/simulator">Simulator</a></li>
+                  <a href="/profile">
+                    <img class="profile_icon" src="https://img.icons8.com/3d-fluency/30/null/person-male--v2.png"
+                      alt="some" />
+                  </a>
+
+                  <% } else { %>
+                    <li class="nav__item"><a href="/signIn">Blogs</a></li>
+                    <li class="nav__item"><a href="/signIn">Featured</a></li>
+                    <li class="nav__item"><a href="/signIn">Simulator</a></li>
+                    <% } %>
+
+          </ul>
+        </nav>
+
+        <div class="site-header__end">
+          <button class="search__toggle" aria-label="Open search">
+          </button>
+        </div>
+
+        <% if(!isLoggedIn){ %>
+          <li class="nav__item authen"><a href="/signIn">Authentication</a></li>
+          <% }else{ %>
+            <li class="nav__item authen"><a href="/logout">Logout</a></li>
+            <% } %>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <script src="/js/navbar.js"></script>
+</body>
+
+</html>

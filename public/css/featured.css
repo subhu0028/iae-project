@@ -1,0 +1,140 @@
+.backpic {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.backgroundpic {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.content h1 {
+    cursor: pointer;
+    font-family: 'Sacramento', cursive;
+    font-size: 5.625rem;
+    color: #65a893;
+    text-align: center;
+}
+
+.content h1:hover {
+    -webkit-text-stroke: 2px #88b9a9;
+    color: transparent;
+}
+
+
+.P {
+    display: flex;
+    flex-direction: row;
+}
+
+.user {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background: #bdcfc9;
+    padding: 20px;
+    width: 47%;
+    height: 50%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-family: "Montserrat-light";
+}
+
+body{
+    background-color: black;
+}
+
+.titleContent{
+    margin-left: 75px;
+    font-weight: 900;
+}
+
+.user1pic {
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 10px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.user1pic:hover {
+    transform: scale(1.5);
+}
+
+.username1 {
+    margin-left: 10px;
+    margin-top: 20px;
+    font-weight: 900;
+    color: crimson;
+}
+
+.horizontal{
+    margin-left: 65px;
+    margin-right: 10px;
+    border: none;
+    height: 3px;
+    background: rgb(22, 72, 43);
+}
+
+#timediv {
+    padding-left: 75px
+}
+
+.timeoncards {
+    color: crimson;
+    margin-top: 20px;
+    text-align: right;
+}
+
+#user{
+    opacity: 0.8;
+}
+
+#user:hover{
+    opacity: 1;
+}
+
+#profiles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    margin: 20px auto;
+}
+
+#searchForm{
+    margin-left: 660px;
+}
+
+.searchQuery{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.heart_button{
+    background: none;
+    border: none;
+    margin-top: 20px;
+    margin-left: 300px;
+}
+
+#heart{
+    background: none;
+    border: none;
+}

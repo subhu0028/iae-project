@@ -1,0 +1,159 @@
+.backgroundpic {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.yourapplications_container {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.applications_cards-heading {
+    font-size: 20px;
+    text-align: center;
+    color: #72AC99;
+}
+
+h1 {
+    cursor: pointer;
+    font-family: 'Sacramento', cursive;
+    font-size: 5.625rem;
+}
+
+h1:hover {
+    -webkit-text-stroke: 2px #72AC99;
+    color: transparent;
+}
+
+.Applications_card {
+    width: 80%;
+    height: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-left: 120px;
+    margin-bottom: 20px;
+    border: 5px solid #72AC99;
+    border-radius: 10px;
+}
+
+.applications_user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.application-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.application_date {
+    font-weight: bold;
+}
+
+.application_country {
+    font-style: italic;
+}
+
+.application_status {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.pending {
+    color: orange;
+}
+
+.approved {
+    color: green;
+}
+
+
+.payment_history-card {
+    width: 80%;
+    height: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-left: 120px;
+    margin-bottom: 20px;
+    border: 5px solid #72AC99;
+    border-radius: 10px;
+}
+
+.paymenthistory_card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
+.payment_history-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.payment_history-card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.payment_history-card .date {
+    font-weight: bold;
+}
+
+.payment_history-card .amount {
+    font-weight: bold;
+}
+
+.payment_history-card .reference-number {
+    font-size: 16px;
+    margin-left: 10px;
+    color: #888;
+}
+
+.payment_history-card .email {
+    font-size: 16px;
+}
+
+.receipt_download-btn {
+    background-color: #72AC99;
+    color: white;
+    padding: 10px;
+    border-radius: 30px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    float: right;
+    position: relative;
+    top: -40px;
+}
+
+.appliation_card-mainheading{
+    margin: 50px 0px;
+    font-size: 4rem;
+}
+
+.application_sub_heading_p{
+    margin: 30px 0px;
+    font-size: 18px;
+}
+
+.footer-distributed {
+    background-color: #292c2f;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    margin-top: 700px;
+    width: 100%;
+    text-align: left;
+    font: normal 16px sans-serif;
+    padding: 45px 50px;
+}

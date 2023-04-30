@@ -1,0 +1,135 @@
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+.backgroundpic {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.mentor_card {
+    background-color: rgba(128, 128, 128, 0.5);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    padding: 30px;
+    width: 80%;
+    max-width: 600px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type=text], select, textarea {
+    border-radius: 3px;
+    border: 1px solid #c9b1b1;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    color: #000;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-512.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 15px 15px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+textarea {
+    height: 150px;
+}
+
+select, textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+
+input[type=file] {
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    width: 20%;
+    float: right;
+    border-radius: 50px;
+}
+
+input[type=submit]:hover {
+    background-color:  #3e8e41;
+}
+
+.mentorchar_count {
+    display: block;
+    font-size: 14px;
+    float: right;
+  }
+  
+.mentorchar_count1{
+    margin-bottom: 20px;
+}
+.mentor_strategyblock{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.mentor_description{
+    margin-bottom: 20px;
+}
+
+
+label[for][required]::before {
+    content: "*";
+    color: red;
+    margin-right: 5px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.content h1 {
+    cursor: pointer;
+    font-family: 'Sacramento', cursive;
+    font-size: 4rem;
+    color: #65a893;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 100px;
+}
+
+.content h1:hover {
+    -webkit-text-stroke: 2px #88b9a9;
+    color: transparent;
+}

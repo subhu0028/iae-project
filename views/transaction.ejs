@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/transaction.css">
+    <link rel="stylesheet" href="/css/notLoggedIn.css">
+    <script src="https://kit.fontawesome.com/b7c0e417e7.js" crossorigin="anonymous"></script>
+    <title>Transaction Page</title>
+</head>
+
+<header>
+    <%- include('partials/_navbar') %>
+</header>
+
+<body>
+    <% if(isLoggedIn){ %>
+
+        <div class="backpic row">
+            <img src="/images/charts.jpg" alt="background" class="backgroundpic">
+        </div>
+
+        <div class="applications_cards-heading">
+            <h1 class="appliation_card-mainheading">Payment History</h1>
+            <h3 class="application_sub_heading_p">Here are all the plans purchased by you:</h3>
+        </div>
+
+        <% for (let index=0; index < details.length; index++) { %>
+            <div class="container1234">
+                <div id="payment-cards-container">
+                    <div class="card payment_history-card">
+                        <div class="paymenthistory_card-content">
+                            <h2>Basic<span class="reference-number">Ref No: <%= details[index]._id %></span></h2>
+                            <p>Chai Trade Exchange</p>
+                        </div>
+                        <div class="purchase-container">
+                            <p>Purchased on : <span class="application_date"><%= details[index].Date %></span></p>
+                            <p>Amount paid : <span class="amount">$<%= details[index].amount %></span></p>
+                        </div>
+                        <div class="date-container">
+                            <p>Type of Purchase : <span class="application_date"><%= details[index].typeOfTransaction %></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <%} %>
+
+                <% } else{ %>
+                    <div class="bodyElement">
+                        <div class="image-container">
+                            <img style="width: 500px" class="signedOutImage"
+                                src="/images/profile-interface-animate.svg">
+                            <p class="image-caption">User not Logged In</p>
+                            <button class="button-27" role="button"><a href="/signIn">Click Here to Login
+                                    -></a></button>
+                        </div>
+                    </div>
+                    <% } %>
+</body>
+
+<footer>
+    <%- include('partials/_footer') %>
+</footer>
+
+</html>

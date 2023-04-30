@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/css/simulator.css">
+  <link rel="stylesheet" href="/css/notLoggedIn.css">
+
+  <script src="https://kit.fontawesome.com/b7c0e417e7.js" crossorigin="anonymous"></script>
+  <title>Simulator</title>
+</head>
+
+<header>
+  <%- include('partials/_navbar') %>
+    <% if(isLoggedIn){ %>
+      <div class="lineview">
+        <div class="tradingview-widget-copyright"></div>
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+          async>
+            {
+              "symbols" = [
+                {
+                  "proName": "FOREXCOM:SPXUSD",
+                  "title": "S&P 500"
+                },
+                {
+                  "proName": "FOREXCOM:NSXUSD",
+                  "title": "US 100"
+                },
+                {
+                  "proName": "FX_IDC:EURUSD",
+                  "title": "EUR/USD"
+                },
+                {
+                  "proName": "BITSTAMP:BTCUSD",
+                  "title": "Bitcoin"
+                },
+                {
+                  "proName": "BITSTAMP:ETHUSD",
+                  "title": "Ethereum"
+                },
+                {
+                  "description": "in",
+                  "proName": "SGX:IN1!"
+                },
+                {
+                  "description": "reliance",
+                  "proName": "NSE:RELIANCE"
+                },
+                {
+                  "description": "USD/Rupee",
+                  "proName": "FX_IDC:USDINR"
+                },
+                {
+                  "description": "oil",
+                  "proName": "MCX:CRUDEOIL1!"
+                },
+                {
+                  "description": "HDFC",
+                  "proName": "NSE:HDFCBANK"
+                },
+                {
+                  "description": "ICICI",
+                  "proName": "NSE:ICICIBANK"
+                },
+                {
+                  "description": "ITC",
+                  "proName": "NSE:ITC"
+                },
+                {
+                  "description": "KOTAK",
+                  "proName": "NSE:KOTAKBANK"
+                },
+                {
+                  "description": "APOLLO",
+                  "proName": "NSE:APOLLOHOSP"
+                },
+                {
+                  "description": "SBI",
+                  "proName": "NSE:SBIN"
+                },
+                {
+                  "description": "TATA",
+                  "proName": "NSE:TATAMOTORS"
+                },
+                {
+                  "description": "RBI",
+                  "proName": "ECONOMICS:ININTR"
+                }
+              ],
+                "showSymbolLogo" = true,
+                "colorTheme" = "dark",
+                "isTransparent" = false,
+                "displayMode" = "adaptive",
+                "locale" = "in"
+            }
+          </script>
+      </div>
+      <% } else { %>
+        <% } %>
+
+</header>
+
+<body>
+  <% if(isLoggedIn){ %>
+    <div class="totalCost">
+      Amount Invested (INR) : <span class="amount" id="costInvested">
+        <%= details.costInvested %>
+      </span>
+    </div>
+    <div class="totalCost">
+      Cash In Hand (INR) : <span class="amount" id="costUser">
+        <%= details.costInHand %>
+      </span>
+    </div>
+    <div class="totalCost">
+      Wallet (INR) : <span class="amount" id="wallet">
+        <%= details.wallet %>
+      </span>
+      <a href="/pricing"><i class="fa-solid fa-plus" style="color: #268a19; margin-left: 10px;"></i></a>
+    </div>
+
+
+    <body class="charts-body">
+      <h2 class="charts-heading">Simulator</h2>
+
+      <div class="charts-container">
+        <div class="charts-column">
+          <div class="charts-card charts-card1">
+            <div class="charts-sub-head" id="charts-sub">Companies</div>
+            <div class="charts-info-1">
+              <div class="charts-info-name">Name</div>
+              <div class="charts-info1">LTP</div>
+              <div class="charts-info2">Change</div>
+              <div class="charts-info3">%Change</div>
+            </div>
+            <% for (let index=0; index < companyStock.length; index++) { %>
+              <div class="charts-info">
+                <div class="charts-info-name">
+                  <%= companyStock[index].chart_name %>
+                </div>
+                <div class="charts-info1">
+                  <%= companyStock[index].chart_ltp %>
+                </div>
+                <div class="charts-info2">
+                  <%= companyStock[index].chart_change %>
+                </div>
+                <div class="charts-info3">
+                  <%= companyStock[index].chart_percentage %>
+                </div>
+                <form action="/buyThisStock" method="POST">
+                  <button value="<%= companyStock[index]._id %>" type="submit" name="priceID" class="buyingButton"
+                    id="AMBUJACEM">Buy</button>
+                </form>
+              </div>
+              <%} %>
+          </div>
+        </div>
+
+        <div class="charts-column">
+          <div class="charts-card charts-card2">
+            <div class="charts-sub-head" id="charts-sub">Commodities</div>
+            <div class="charts-info-1">
+              <div class="charts-info-name">Name</div>
+              <div class="charts-info1">LTP</div>
+              <div class="charts-info2">Change</div>
+              <div class="charts-info3">%Change</div>
+            </div>
+            <% for (let index=0; index < commodityStock.length; index++) { %>
+              <div class="charts-info">
+                <div class="charts-info-name">
+                  <%= commodityStock[index].chart_name %>
+                </div>
+                <div class="charts-info1">
+                  <%= commodityStock[index].chart_ltp %>
+                </div>
+                <div class="charts-info2">
+                  <%= commodityStock[index].chart_change %>
+                </div>
+                <div class="charts-info3">
+                  <%= commodityStock[index].chart_percentage %>
+                </div>
+                <form action="/buyThisStock" method="POST">
+                  <button value="<%= commodityStock[index]._id %>" type="submit" name="priceID" class="buyingButton"
+                    id="GOLD">Buy</button>
+                </form>
+              </div>
+              <%} %>
+          </div>
+        </div>
+
+        <div class="charts-column">
+          <div class="charts-card charts-card3">
+            <div class="charts-sub-head" id="charts-sub">Forex</div>
+            <div class="charts-info-1">
+              <div class="charts-info-name">Name</div>
+              <div class="charts-info1">LTP</div>
+              <div class="charts-info2">Change</div>
+              <div class="charts-info3">%Change</div>
+            </div>
+            <% for (let index=0; index < forexStock.length; index++) { %>
+              <div class="charts-info">
+                <div class="charts-info-name">
+                  <%= forexStock[index].chart_name %>
+                </div>
+                <div class="charts-info1">
+                  <%= forexStock[index].chart_ltp %>
+                </div>
+                <div class="charts-info2">
+                  <%= forexStock[index].chart_change %>
+                </div>
+                <div class="charts-info3">
+                  <%= forexStock[index].chart_percentage %>
+                </div>
+                <form action="/buyThisStock" method="POST">
+                  <button value="<%= forexStock[index]._id %>" type="submit" name="priceID" class="buyingButton"
+                    id="GBUSD">Buy</button>
+                </form>
+              </div>
+              <% } %>
+          </div>
+        </div>
+
+        <div class="charts-column">
+          <div class="charts-card charts-card4">
+            <div class="charts-sub-head" id="charts-sub">Crypto</div>
+            <div class="charts-info-1">
+              <div class="charts-info-name">Name</div>
+              <div class="charts-info1">LTP</div>
+              <div class="charts-info2">Change</div>
+              <div class="charts-info3">%Change</div>
+            </div>
+            <% for (let index=0; index < cryptoStock.length; index++) { %>
+              <div class="charts-info">
+                <div class="charts-info-name"><%= cryptoStock[index].chart_name %></div>
+                <div class="charts-info1"><%= cryptoStock[index].chart_ltp %></div>
+                <div class="charts-info2"><%= cryptoStock[index].chart_change %></div>
+                <div class="charts-info3"><%= cryptoStock[index].chart_percentage %></div>
+                <form action="/buyThisStock" method="POST">
+                  <button value="<%= cryptoStock[index]._id %>" type="submit" name="priceID" class="buyingButton"
+                    id="ETHUSDT">Buy</button>
+                </form>
+              </div>
+
+              <%} %>
+                <div></div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="charts-heading">Share Holdings</h2>
+
+      <% for (let index=0; index < stockTransactionDetails.length; index++) { %>
+        <div class="simulator_stockcard">
+          <div class="simulator_cardheading">
+            <h2>
+              <%= stockDetails[index].chart_name %>
+            </h2>
+            <p>Chai Trade Exchange</p>
+          </div>
+
+          <div class="simulator_cardcontents">
+            <div class="simulator_cardprice">
+
+              <div class="simulator_allsameclass">
+                <p class="simulator_cardcontentheadings">Price</p>
+              </div>
+              <div class="simulator_allsameclass">
+                <p>
+                  <%= stockDetails[index].chart_ltp %>
+                </p>
+              </div>
+              <div class="simulator_allsameclass">
+                <p class="triangle">
+                  <%= stockDetails[index].chart_change %>
+                </p>
+              </div>
+              <div class="simulator_allsameclass">
+                <% if(stockDetails[index].chart_change>= 0.0){ %>
+                  <p class="triangle"> ▲ <%= stockDetails[index].chart_percentage %>
+                  </p>
+                  <% } else{ %>
+                    <p class="triangle"> ▼ <%= stockDetails[index].chart_percentage %>
+                    </p>
+                    <% } %>
+
+              </div>
+            </div>
+
+            <div class="simulator_cardvalue">
+
+              <div class="simulator_allsameclass">
+                <p class="simulator_cardcontentheadings">Purchase Details</p>
+              </div>
+              <div class="simulator_allsameclass">
+                <p>
+                  <%= stockTransactionDetails[index].purchasePrice %>
+                </p>
+              </div>
+              <div class="simulator_allsameclass">
+                <p class="card_date">
+                  <%= stockTransactionDetails[index].purchaseDate %>
+                </p>
+              </div>
+            </div>
+
+            <div class="simulator_cardprofit">
+              <div class="simulator_allsameclass">
+                <p class="simulator_cardcontentheadings">P&L</p>
+              </div>
+              <div class="simulator_allsameclass">
+                <p>-------</p>
+              </div>
+              <div class="simulator_allsameclass">
+                <p class="triangle">$ <%= (stockDetails[index].chart_ltp -
+                    stockTransactionDetails[index].purchasePrice).toFixed(2) %>
+                </p>
+              </div>
+              <div class="simulator_allsameclass">
+                <p class="triangle">
+                  <%= ((stockDetails[index].chart_ltp -
+                    stockTransactionDetails[index].purchasePrice)/stockDetails[index].chart_ltp).toFixed(2) %>
+                </p>
+              </div>
+              <% if(stockTransactionDetails[index].inPossesion==true){ %>
+                <div class="simulator_allsameclass">
+                  <form action="/sellThisShare" method="POST">
+                    <input type="text" name="transactionID" , value="<%= stockTransactionDetails[index]._id  %>"
+                      style="display: none;">
+                    <input type="text" name="purchaseValue" ,
+                      value="<%= stockTransactionDetails[index].purchasePrice  %>" style="display: none;">
+                    <input type="text" name="currentValue" , value="<%= stockDetails[index].chart_ltp  %>"
+                      style="display: none;">
+                    <button class="Sell-Button" name="sellButton" value="<%= stockTransactionDetails[index].stockID %>"
+                      type="submit">Sell</button>
+                  </form>
+                </div>
+                <% } else { %>
+                  <div class="simulator_allsameclass">
+                    <p style="color: red !important;" class="triangle">
+                      Sold
+                    </p>
+                  </div>
+                  <% } %>
+
+            </div>
+          </div>
+        </div>
+        <% } %>
+
+    </body>
+    <% } else { %>
+      <div class="bodyElement">
+        <div class="image-container">
+          <img style="width: 500px" class="signedOutImage" src="/images/profile-interface-animate.svg">
+          <p class="image-caption">User not Logged-in</p>
+          <button class="button-27" role="button"><a href="/signIn">Click Here to Login</a></button>
+        </div>
+      </div>
+      <% } %>
+</body>
+
+
+<% if(isLoggedIn){ %>
+  <footer>
+    <%- include('partials/_footer') %>
+  </footer>
+  <% } else { %>
+    <% } %>
+
+
+</html>

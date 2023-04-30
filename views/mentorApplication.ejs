@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/mentorApplication.css">
+    <link rel="stylesheet" href="/css/notLoggedIn.css">
+
+    <script src="https://kit.fontawesome.com/b7c0e417e7.js" crossorigin="anonymous"></script>
+    <title>Mentor Application</title>
+</head>
+
+<header>
+    <%- include('partials/_navbar') %>
+</header>
+
+<body>
+    <% if(isLoggedIn){ %>
+        <div class="backpic row">
+            <img src="/images/charts.jpg" alt="background" class="backgroundpic">
+        </div>
+
+        <div class="content">
+            <h1>Apply to be a Mentor</h1>
+        </div>
+
+        <div class="mentor_card">
+
+            <form id="mentorApplication" action="/postMentorApplication" method="POST">
+                <% if(status !="" ){ %>
+                    <p style="margin-bottom: 15px; margin-left: 200px; font-weight: 500; color: aqua;">
+                        <%= status %>
+                    </p>
+                    <% } %>
+                        <label for="mentor_country" required>Country</label>
+                        <select id="mentor_country" name="mentorCountry" required>
+                            <option value="">Select your Country</option>
+                            <option value="India">India</option>
+                            <option value="USA">USA</option>
+                            <option value="UK">UK</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Japan">Japan</option>
+                            <option value="South Korea">South Korea</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Other">Other</option>
+                        </select>
+
+                        <label for="mentor_experience" required>Trading Experience (in years)</label>
+                        <select id="mentor_experience" name="mentorExperience" required>
+                            <option value="">Select your trading experience</option>
+                            <option value="1">1 year</option>
+                            <option value="2">2 years</option>
+                            <option value="3">3 years</option>
+                            <option value="4">4 years</option>
+                            <option value="5">5 years</option>
+                            <option value="6">6 years</option>
+                            <option value="7">7 years</option>
+                            <option value="8">8 years</option>
+                            <option value="9">9 years</option>
+                            <option value="10">10 years or more</option>
+                        </select>
+
+                        <div class="mentor_strategyblock">
+                            <label for="strategy" required>Trading Strategy</label>
+                            <textarea type="text" id="strategy" name="strategy" required></textarea>
+                            <span id="strategy-char-count" class="mentorchar_count mentorchar_count1">0/200</span>
+                        </div>
+
+                        <div class="mentor_description">
+                            <label for="why" required>Why do you want to be a mentor?</label>
+                            <textarea id="why" name="why" required></textarea>
+                            <span id="why-char-count" class="mentorchar_count">0/200</span>
+                        </div>
+
+                        <label for="certificate" required>Certificate / Qualification (Upload a Drive Link : )</label>
+                        <input type="text" id="certificate" name="certificate" required>
+
+                        <input type="submit" value="Submit">
+
+            </form>
+        </div>
+        <script src="/js/mentorApplication.js"></script>
+        <% } else { %>
+            <div class="bodyElement">
+                <div class="image-container">
+                    <img style="width: 500px" class="signedOutImage" src="/images/profile-interface-animate.svg">
+                    <p class="image-caption">Not a Mentor</p>
+                    <button class="button-27" role="button"><a href="/signIn">Click Here to Login</a></button>
+                </div>
+            </div>
+            <% } %>
+
+</body>
+
+<footer>
+    <%- include('partials/_footer') %>
+</footer>
+
+</html>

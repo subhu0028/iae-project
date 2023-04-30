@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/contactUs.css">
+    <link rel="stylesheet" href="/css/notLoggedIn.css">
+
+    <script src="https://kit.fontawesome.com/b7c0e417e7.js" crossorigin="anonymous"></script>
+    <title>Contact Us</title>
+</head>
+
+<header>
+    <%- include('partials/_navbar') %>
+</header>
+
+<body>
+    <% if(isLoggedIn){ %>
+        <img src="/images/charts.jpg" alt="background" class="backgroundpic">
+        <div class="container">
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+                <h3>We are open to suggestions:</h3>
+                <p>Phone: 7907314057</p>
+                <p>Address: IIIT Sri City</p>
+                <p>Email: admin@chaitrade.com</p>
+            </div>
+            <div class="contact-form">
+                <h2>Get in touch</h2>
+                <div id="success-message"></div>
+
+                <form id="contact-form" action="/feedback" method="POST">
+                    <div class="form-group-inline">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required value="<%= name %>">
+                    </div>
+
+                    <div class="form-group-inline">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required value="<%= email %>">
+                    </div>
+
+                    <div class="form-group-full">
+                        <label for="subject">Title:</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group-full">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <input type="submit" value="Send">
+
+                </form>
+
+            </div>
+        </div>
+        <script src="/js/contactUs.js"></script>
+        <% } else { %>
+            <div class="bodyElement">
+                <div class="image-container">
+                    <img style="width: 500px" class="signedOutImage" src="/images/profile-interface-animate.svg">
+                    <p class="image-caption">User not Logged-in</p>
+                    <button class="button-27" role="button"><a href="/signIn">Click Here to Login</a></button>
+                </div>
+            </div>
+            <% } %>
+
+</body>
+
+<footer>
+    <%- include('partials/_footer') %>
+</footer>
+
+</html>

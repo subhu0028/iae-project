@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+}
+
+.charts-body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("/images/charts.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    z-index: -1;
+}
+
+.charts-column {
+    float: left;
+    width: 50%;
+
+    padding: 20px 20px;
+}
+
+.charts-container {
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+.charts-row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .charts-column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+.charts-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    border-radius: 0.5rem;
+    opacity: 0.8;
+}
+
+.charts-card:hover {
+    opacity: 1;
+}
+
+.charts-card1 {
+    margin-top: 5rem;
+    margin-left: 10rem;
+    margin-bottom: 2rem;
+}
+
+.charts-card2 {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    margin-right: 10rem;
+}
+
+.charts-card3,
+.charts-card5 {
+    margin-bottom: 2rem;
+    margin-left: 10rem;
+}
+
+.charts-card4,
+.charts-card6 {
+    margin-bottom: 2rem;
+    margin-right: 10rem;
+}
+
+.charts-heading {
+    cursor: pointer;
+    font-family: 'Sacramento', cursive;
+    font-size: 5.625rem;
+    color: #72AC99;
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+
+.charts-heading:hover {
+    -webkit-text-stroke: 2px #72AC99;
+    color: transparent;
+}
+
+.charts-info {
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 20px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.charts-info-1 {
+    margin: 10px 0px !important;
+    color: rgb(189, 49, 192);
+    /* border: 1px solid black; */
+    margin: 5px;
+    font-size: 20px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+#charts-sub {
+    font-size: 30px;
+}
+
+.footer-distributed {
+    background-color: #292c2f;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    margin-top: 850px;
+    width: 100%;
+    text-align: left;
+    font: normal 16px sans-serif;
+    padding: 45px 50px;
+}

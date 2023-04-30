@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai Trade</title>
+    <link href="/css/home.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/b7c0e417e7.js" crossorigin="anonymous"></script>
+</head>
+
+<header>
+    <%- include('partials/_navbar') %>
+    <div class="lineview">
+        <div class="tradingview-widget-copyright"></div>
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+          async>
+            {
+              "symbols" = [
+                {
+                  "proName": "FOREXCOM:SPXUSD",
+                  "title": "S&P 500"
+                },
+                {
+                  "proName": "FOREXCOM:NSXUSD",
+                  "title": "US 100"
+                },
+                {
+                  "proName": "FX_IDC:EURUSD",
+                  "title": "EUR/USD"
+                },
+                {
+                  "proName": "BITSTAMP:BTCUSD",
+                  "title": "Bitcoin"
+                },
+                {
+                  "proName": "BITSTAMP:ETHUSD",
+                  "title": "Ethereum"
+                },
+                {
+                  "description": "in",
+                  "proName": "SGX:IN1!"
+                },
+                {
+                  "description": "reliance",
+                  "proName": "NSE:RELIANCE"
+                },
+                {
+                  "description": "USD/Rupee",
+                  "proName": "FX_IDC:USDINR"
+                },
+                {
+                  "description": "oil",
+                  "proName": "MCX:CRUDEOIL1!"
+                },
+                {
+                  "description": "HDFC",
+                  "proName": "NSE:HDFCBANK"
+                },
+                {
+                  "description": "ICICI",
+                  "proName": "NSE:ICICIBANK"
+                },
+                {
+                  "description": "ITC",
+                  "proName": "NSE:ITC"
+                },
+                {
+                  "description": "KOTAK",
+                  "proName": "NSE:KOTAKBANK"
+                },
+                {
+                  "description": "APOLLO",
+                  "proName": "NSE:APOLLOHOSP"
+                },
+                {
+                  "description": "SBI",
+                  "proName": "NSE:SBIN"
+                },
+                {
+                  "description": "TATA",
+                  "proName": "NSE:TATAMOTORS"
+                },
+                {
+                  "description": "RBI",
+                  "proName": "ECONOMICS:ININTR"
+                }
+              ],
+                "showSymbolLogo" = true,
+                "colorTheme" = "dark",
+                "isTransparent" = false,
+                "displayMode" = "adaptive",
+                "locale" = "in"
+            }
+          </script>
+    </div>
+</header>
+
+<body>
+    <img src="/images/charts.jpg" alt="background" class="backgroundpic">
+    <div id="home_container">
+        <div class="product-details">
+            <h1>News Section</h1>
+            <p class="information">The News Section is where you will find the latest News
+                regarding the stock market. One can get all the information here on a daily basis,
+                from what's going in the market in general to what is up with specific company stocks.
+                It is an unbaised page which depends only on the media.</p>
+            <div class="control">
+                <button class="btn changes">
+                    <span class="price">Go</span>
+                    <span class="shopping-cart">-></i></span>
+                    <span class="buy">
+                        <a href="/news">Visit Page</a>
+                        </span>
+                </button>
+            </div>
+        </div>
+        <div class="product-image">
+            <img src="/images/home-news.png"
+                alt="">
+        </div>
+    </div>
+
+    <div id="home_container">
+        <div class="product-details">
+            <h1>Charts Section</h1>
+            <p class="information">The Chart Section contains the latest charts and trends.
+                The Charts section is updated regularly and displays stock statistics.
+                It shows different charts for commodities, forex and companies.
+                It displays all the stock information in a pictorial format via graphs, pie charts,
+                line graphs, histograms etc. Making it easier for the user to understand the maket.</p>
+            <div class="control">
+                <button class="btn">
+                    <span class="price">Go</span>
+                    <span class="shopping-cart">-></i></span>
+                    <span class="buy">
+                        <a href="/charts">Visit Page</a>
+                        </span>
+                </button>
+            </div>
+        </div>
+        <div class="product-image">
+            <img src="/images/home-charts.png"
+                alt="">
+        </div>
+    </div>
+
+    <div id="home_container">
+        <div class="product-details">
+            <h1>Trading Simulator</h1>
+            <p class="information">The trading simulator, where all the magic happens.
+                Here the user can trade in virtual money. 
+                It is the main idea behind this website, the trading simulator provides the user with virtual
+                currency to trade in. It helps the user to learn about the stock market without actually 
+                risking their real money. It educates people on how a person can make money just by investing.</p>
+            <div class="control">
+                <button class="btn changes">
+                    <span class="price">Go</span>
+                    <span class="shopping-cart">-></i></span>
+                    <span class="buy">
+                        <a href="/simulator">Visit Page</a>
+                        </span>
+                </button>
+            </div>
+        </div>
+        <div class="product-image">
+            <img src="/images/home-simulator.png"
+                alt="">
+        </div>
+    </div>
+
+    <div id="home_container">
+        <div class="product-details">
+            <h1>Featured Updates</h1>
+            <p class="information">Platform for users to get updates on statistics of different stocks 
+                uploaded by anlysts. The analysts are certified and have their own panel to perform 
+                research on different kinds of stocks and perform satistical operations on them 
+                for understanding them better or even predicting the stock market.</p>
+            <div class="control">
+                <button class="btn changes">
+                    <span class="price">Go</span>
+                    <span class="shopping-cart">-></span>
+                    <span class="buy">
+                        <a href="/featured">Visit Page</a>
+                        </span>
+                </button>
+            </div>
+        </div>
+        <div class="product-image">
+            <img src="/images/home-feature.png"
+                alt="">
+        </div>
+    </div>
+
+    <div id="home_container">
+        <div class="product-details">
+            <h1>Blog Posts</h1>
+            <p class="information">The page where certified mentors
+                can write about stock markets, discuss the on-going trends,
+                tell their opnions and help the users out. The users can interact with the mentors
+                by posting questions and the mentor can get back and answer the same via their panel.
+                The mentor does not recommend which stocks to buy or influence the market.
+                They are present to educate people and help them understand the stock market better.</p>
+            <div class="control">
+                <button class="btn">
+                    <span class="price">Go</span>
+                    <span class="shopping-cart">-></i></span>
+                    <span class="buy">
+                        <a href="/blog">Visit Page</a>
+                        </span>
+                </button>
+            </div>
+        </div>
+        <div class="product-image">
+            <img src="/images/home-blog.png"
+                alt="">
+        </div>
+    </div>
+
+</body>
+
+<footer>
+    <%- include('partials/_footer') %>
+</footer>
+
+</html>

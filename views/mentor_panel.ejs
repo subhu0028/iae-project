@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/mentor.css">
+    <link rel="stylesheet" href="/css/notLoggedIn.css">
+
+    <script src="https://kit.fontawesome.com/b7c0e417e7.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@3.2.6/css/froala_editor.pkgd.min.css" rel="stylesheet"
+        type="text/css" />
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/froala-editor@3.2.6/js/froala_editor.pkgd.min.js"></script>
+    <title>Mentor Panel</title>
+</head>
+
+<header>
+    <%- include('partials/_navbar') %>
+</header>
+
+<body>
+    <% if(isMentorLoggedIn){ %>
+        <img src="/images/charts.jpg" alt="background" class="backgroundpic">
+        <div class="comment_container">
+            <div class="form_container">
+
+                <form id="comment_upload" action="/postFeaturedBlog" method="POST">
+                    <div class="icons">
+                        <h3>Mentor Arena</h3>
+                        <input type="file" id="upload" hidden />
+                        <label class="uploader" for="upload"><i class="fa-solid fa-paperclip"></i></label>
+                    </div>
+
+                    <input name="title" placeholder="Title" type="text" required />
+                    <textarea id="my-textarea" name="content" placeholder="Type your message here...."
+                        required></textarea>
+
+                    <button name="submit" type="submit" id="contact-submit">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            var editor = new FroalaEditor('#my-textarea', {
+
+
+                toolbarInline: false,
+                toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'color', 'emoticons', 'insertImage', 'insertLink', 'insertTable', 'undo', 'redo', 'fullscreen'],
+                pluginsEnabled: ['image', 'link', 'table', 'colors', 'emoticons', 'fullscreen']
+            })
+        </script>
+        <% } else { %>
+            <div class="bodyElement">
+                <div class="image-container">
+                    <img style="width: 500px" class="signedOutImage" src="/images/profile-interface-animate.svg">
+                    <p class="image-caption">Not a Mentor</p>
+                    <button class="button-27" role="button"><a href="/mentorApplication">Apply to be a Mentor</a></button>
+                </div>
+            </div>
+            <% } %>
+
+</body>
+
+<footer>
+    <%- include('partials/_footer') %>
+</footer>
+
+</html>
